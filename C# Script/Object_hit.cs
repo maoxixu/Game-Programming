@@ -5,21 +5,18 @@ using UnityEngine;
 public class Object_hitnew : MonoBehaviour
 {
     // Start is called before the first frame update
-  
-  
-        void OnCollisionEnter(Collision other)
+    // ...
+
+    void OnCollisionEnter(Collision other)
+    {
+        // Check if the colliding object has the "Player" tag
+        if (other.gameObject.tag == "Player")
         {
-            if (other.gameObject.tag == "Player")
-            {
-
-
-                GetComponent<MeshRenderer>().material.color = Color.yellow;
-                gameObject.tag = "Hit";
-                
-
-            }
+            // Change the color to yellow when hit by the player
+            GetComponent<MeshRenderer>().material.color = Color.yellow;
+            // Change the tag of the object to "Hit"
+            gameObject.tag = "Hit";
         }
-
-
+    }
     
 }
